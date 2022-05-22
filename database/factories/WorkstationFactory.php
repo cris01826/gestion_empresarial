@@ -13,8 +13,9 @@ class WorkstationFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+            'name_workstation' => $this->faker->jobTitle()
         ];
     }
 }

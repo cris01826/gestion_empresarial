@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use \Illuminate\Support\Facades\DB;
 class WorkstationSeeder extends Seeder
 {
     /**
@@ -13,6 +13,6 @@ class WorkstationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Workstation::factory(15)->create();
     }
 }

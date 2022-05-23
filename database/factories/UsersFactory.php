@@ -16,7 +16,7 @@ class UsersFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'last_name' => $this->faker->lastName(),
-            'dni' => $this->faker->legal_person_nit(),
+            'dni' => $this->faker->dni(),
             'address' =>$this->faker->address(),
             'phone' =>$this->faker->phoneNumber(),
             'id_country' => 0,

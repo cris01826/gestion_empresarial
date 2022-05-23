@@ -4,42 +4,42 @@
 <form class="row g-3 needs-validation" validate>
     <div class="col-md-6">
         <div class="form-floating">
-            <input type="text" name="name" required class="form-control" id="nameCreate" placeholder="Nombre">
-            <label for="floatingPassword">Nombre</label>
+            <input type="text" value="" name="name" required class="form-control" id="namecreate" placeholder="Nombre">
+            <label for="namecreate">Nombre</label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating">
-            <input type="text" name="last_name" required class="form-control" id="lastNameCreate"
+            <input type="text" value="" name="last_name" required class="form-control" id="lastnamecreate"
                 placeholder="Apellido">
-            <label for="floatingPassword">Apellido</label>
+            <label for="lastnamecreate">Apellido</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="dni" required class="form-control" id="dniCreate"
+            <input type="text" value="" name="dni" required class="form-control" id="dnicreate"
                 placeholder="Identificación">
-            <label for="floatingPassword">Identificación</label>
+            <label for="dnicreate">Identificación</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="address" required class="form-control" id="addressCreate"
+            <input type="text" value="" name="address" required class="form-control" id="addresscreate"
                 placeholder="Dirección">
-            <label for="floatingPassword">Dirección</label>
+            <label for="addresscreate">Dirección</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="phone" required class="form-control" id="phoneCreate"
+            <input type="text" value="" name="phone" required class="form-control" id="phonecreate"
                 placeholder="Telefono">
-            <label for="floatingPassword">Telefono</label>
+            <label for="phonecreate">Telefono</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <select class="form-select" id="jobcreate" aria-label="Floating label select example">
-                <option selected>Seleccione una o varias opciones</option>
+            <select value="" class="form-select" value="" id="jobcreate" aria-label="Floating label select example">
+                <option value="" selected>Seleccione una o varias opciones</option>
                 @foreach ($cargos as $cargo)
                     <option value="{{ $cargo->id }}">{{ $cargo->name_workstation }}</option>
                 @endforeach
@@ -49,7 +49,7 @@
     </div>
     <div class="col-md-4">
         <div class="form-floating">
-            <select onchange="enabledepartment()" class="form-select" id="selectCountry">
+            <select value="" onchange="enabledepartment()" class="form-select" id="selectCountry">
                 <option value="" selected>Seleccione un país</option>
                 @foreach ($paises as $pais)
                     <option value="{{ $pais->id }}">{{ $pais->name_country }}</option>
@@ -60,8 +60,8 @@
     </div>
     <div class="col-md-4">
         <div class="form-floating">
-            <select onchange="enableCity()" class="form-select" id="selectDepartment" disabled>
-                <option selected>Seleccione un departamento</option>
+            <select value="" onchange="enableCity()" class="form-select" id="selectDepartment" disabled>
+                <option value="" selected>Seleccione un departamento</option>
                 
             </select>
             <label for="selectDepartment">departamento</label>
@@ -69,9 +69,8 @@
     </div>
     <div class="col-md-4">
         <div class="form-floating">
-            <select class="form-select" id="citySelect" disabled>
-                <option selected>Seleccione una ciudad</option>
-    
+            <select value="" class="form-select" id="citySelect" disabled>
+                <option value="" selected>Seleccione una ciudad</option>
             </select>
             <label for="citySelect">Ciudad</label>
         </div>

@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
-
+@import 'node_modules/toastr/toastr.scss';
 .info {
     padding: 10px;
     background-color: #ffffff;

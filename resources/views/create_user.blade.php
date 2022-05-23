@@ -1,44 +1,44 @@
 <h3>Crear Nuevo Empleado</h3>
 <button type="button" onclick="createUser()" class="btn btn-outline-danger close"><i
         class="fa-solid fa-xmark"></i></button>
-<form action="{{ route('users.store') }}" method="POST" class="row g-3 needs-validation" validate>
+<form class="row g-3 needs-validation" validate>
     <div class="col-md-6">
         <div class="form-floating">
-            <input type="text" name="name" required class="form-control" id="floatingPassword" placeholder="Nombre">
+            <input type="text" name="name" required class="form-control" id="nameCreate" placeholder="Nombre">
             <label for="floatingPassword">Nombre</label>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating">
-            <input type="text" name="last_name" required class="form-control" id="floatingPassword"
+            <input type="text" name="last_name" required class="form-control" id="lastNameCreate"
                 placeholder="Apellido">
             <label for="floatingPassword">Apellido</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="dni" required class="form-control" id="floatingPassword"
+            <input type="text" name="dni" required class="form-control" id="dniCreate"
                 placeholder="Identificación">
             <label for="floatingPassword">Identificación</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="address" required class="form-control" id="floatingPassword"
+            <input type="text" name="address" required class="form-control" id="addressCreate"
                 placeholder="Dirección">
             <label for="floatingPassword">Dirección</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <input type="text" name="phone" required class="form-control" id="floatingPassword"
+            <input type="text" name="phone" required class="form-control" id="phoneCreate"
                 placeholder="Telefono">
             <label for="floatingPassword">Telefono</label>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-floating">
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <select class="form-select" id="jobcreate" aria-label="Floating label select example">
                 <option selected>Seleccione una o varias opciones</option>
                 @foreach ($cargos as $cargo)
                     <option value="{{ $cargo->id }}">{{ $cargo->name_workstation }}</option>
@@ -77,6 +77,6 @@
         </div>
     </div>
     <div class="col-12">
-        <button class="btn btn-success" type="submit">Crear Empleado</button>
+        <button class="btn btn-success" type="button" onclick="createNewUser()">Crear Empleado</button>
     </div>
 </form>

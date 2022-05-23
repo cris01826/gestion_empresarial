@@ -1,5 +1,5 @@
 window._ = require('lodash');
-
+require('toastr');
 try {
     require('bootstrap');
 } catch (e) {}

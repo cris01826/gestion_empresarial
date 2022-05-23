@@ -13,7 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset(mix('js/app.js')) }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     
@@ -21,7 +21,8 @@
     
 
     <!-- Styles -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/plantilla.scss') }}" />
 </head>

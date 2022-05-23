@@ -113,7 +113,6 @@
     </div>
 
     <script>
-     
         function createUser() {
             var x = document.getElementById("createUser");
             var options = document.getElementById("options");
@@ -163,22 +162,24 @@
                     id: country.value,
                 },
                 headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				},
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function(data) {
                     if (data.length != 0) {
                         let content = ""
                         content += "<option selected>Seleccione un departamento</option>"
                         for (let i = 0; i < data.length; i++) {
                             const department = data[i];
-                        content += "<option value='"+department.id+"'>"+department.name_department+"</option>"
+                            content += "<option value='" + department.id + "'>" + department.name_department +
+                                "</option>"
                         }
                         document.getElementById('selectDepartment').innerHTML = content
                     } else {
-                        
+
                     }
 
-                },error:function(request,status,error){
+                },
+                error: function(request, status, error) {
                     console.log(request);
                 }
             });
@@ -201,25 +202,45 @@
                     id: department.value,
                 },
                 headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				},
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function(data) {
                     if (data.length != 0) {
                         let content = ""
-                        content += "<option selected>Seleccione un departamento</option>"
+                        content += "<option selected>Seleccione una ciudad </option>"
                         for (let i = 0; i < data.length; i++) {
-                            const department = data[i];
-                        content += "<option value='"+department.id+"'>"+department.name_department+"</option>"
+                            const city = data[i];
+                            content += "<option value='" + city.id + "'>" + city.name_city + "</option>"
                         }
-                        document.getElementById('selectDepartment').innerHTML = content
+                        document.getElementById('citySelect').innerHTML = content
                     } else {
-                        
+
                     }
 
-                },error:function(request,status,error){
+                },
+                error: function(request, status, error) {
                     console.log(request);
                 }
             });
+        }
+
+        function createNewUser(){
+            toastr.success('Hola')
+            var name = document.getElementById('nameCreate').value
+            console.log(name);
+            if(name == null){
+                
+            }
+            var last_name = document.getElementById('').value
+            var dni = document.getElementById('').value
+            var address = document.getElementById('').value
+            var phone = document.getElementById('').value
+            var job = document.getElementById('').value
+            var country = document.getElementById('').value
+            var department = document.getElementById('').value
+            var city = document.getElementById('').value
+
+            
         }
     </script>
 @endsection

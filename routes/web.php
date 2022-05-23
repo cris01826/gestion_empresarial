@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 Route::resource('users', UserController::class);
-
+Route::post('/deparments', 'DepartmentsController@departmentByCountry');
+Route::post('/cities', 'CitiesController@cityByDepartment');
 
 

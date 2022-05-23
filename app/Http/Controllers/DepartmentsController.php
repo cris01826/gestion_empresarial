@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Departments;
 use App\Http\Requests\StoreDepartmentsRequest;
 use App\Http\Requests\UpdateDepartmentsRequest;
+use Illuminate\Http\Request;
 
 class DepartmentsController extends Controller
 {
@@ -18,6 +19,14 @@ class DepartmentsController extends Controller
         //
     }
 
+    public function departmentByCountry(Request $request){
+
+        $country = $request->get('id');
+        $departments = Departments::where('id_country',$country)
+                    ->orderBy('name_department')
+                    ->get();
+        return response(json_encode($departments),200);
+    }
     /**
      * Store a newly created resource in storage.
      *

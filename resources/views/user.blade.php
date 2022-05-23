@@ -43,7 +43,14 @@
         }
 
         .options {
+            padding-top: 60px;
             text-align: center;
+        }
+
+        .close {
+            float: right;
+            margin-top: -41px;
+            margin-right: -7px;
         }
 
     </style>
@@ -66,9 +73,20 @@
                             <h5>No hay resultados</h5>
                         @endif
                         @foreach ($users as $user)
-                            <div class="card card-user"><i class="fa-solid fa-user icon-user"></i>
+                            <div class="card card-user">
+                                <i class="fa-solid fa-user icon-user"></i>
                                 <p class="text-user">{{ $user->name }}
                                     {{ $user->last_name }}</p>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button onclick="editUser()" type="button" class="btn btn-success btn-sm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Editar usuario"><i
+                                            class="fa-solid fa-pen-to-square"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Eliminar usuario"><i
+                                            class="fa-solid fa-trash-can"></i></button>
+                                </div>
+
                             </div>
                         @endforeach
                         {{ $users->links() }}
@@ -78,28 +96,130 @@
             </div>
             {{-- información del empleado --}}
             <div class="col-md-8">
-                <div class="options">
+                <div class="options" id="options">
                     <h5>Seleccione un empleado</h5>
                     <h5>o</h5>
                     <button type="button" onclick="createUser()" class="btn btn-success">Crear nuevo usuario</button>
                 </div>
 
                 <div class="info" style="display: none" id="createUser">
-                   @include('create_user')
+                    @include('create_user')
+                </div>
+                <div class="info" style="display: none" id="editUser">
+                    @include('edit_user')
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+     
         function createUser() {
             var x = document.getElementById("createUser");
-            console.log(x);
+            var options = document.getElementById("options");
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
             }
+
+            if (options.style.display === "none") {
+                options.style.display = "block";
+            } else {
+                options.style.display = "none";
+            }
+        }
+
+        function editUser() {
+            var x = document.getElementById("editUser");
+            var options = document.getElementById("options");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+
+            if (options.style.display === "none") {
+                options.style.display = "block";
+            } else {
+                options.style.display = "none";
+            }
+        }
+
+        function enabledepartment() {
+            var country = document.getElementById('selectCountry')
+            console.log('evento', country.value);
+            if (country.value != '' || country.value != null) {
+                document.getElementById("selectDepartment").removeAttribute("disabled");
+            } else if (country.value == '' || country.value == null) {
+                console.log('set');
+                document.getElementById("selectDepartment").setAttribute("disabled", "disabled");
+            }
+            $.ajax({
+                url: "/deparments",
+                type: "post",
+                dataType: "json",
+                data: {
+                    id: country.value,
+                },
+                headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				},
+                success: function(data) {
+                    if (data.length != 0) {
+                        let content = ""
+                        content += "<option selected>Seleccione un departamento</option>"
+                        for (let i = 0; i < data.length; i++) {
+                            const department = data[i];
+                        content += "<option value='"+department.id+"'>"+department.name_department+"</option>"
+                        }
+                        document.getElementById('selectDepartment').innerHTML = content
+                    } else {
+                        
+                    }
+
+                },error:function(request,status,error){
+                    console.log(request);
+                }
+            });
+        }
+
+        function enableCity() {
+            var department = document.getElementById('selectDepartment')
+            console.log('evento', department.value);
+            if (department.value != '' || department.value != null) {
+                document.getElementById("citySelect").removeAttribute("disabled");
+            } else if (country.department == '' || department.value == null) {
+                console.log('set');
+                document.getElementById("citySelect").setAttribute("disabled", "disabled");
+            }
+            $.ajax({
+                url: "/cities",
+                type: "post",
+                dataType: "json",
+                data: {
+                    id: department.value,
+                },
+                headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				},
+                success: function(data) {
+                    if (data.length != 0) {
+                        let content = ""
+                        content += "<option selected>Seleccione un departamento</option>"
+                        for (let i = 0; i < data.length; i++) {
+                            const department = data[i];
+                        content += "<option value='"+department.id+"'>"+department.name_department+"</option>"
+                        }
+                        document.getElementById('selectDepartment').innerHTML = content
+                    } else {
+                        
+                    }
+
+                },error:function(request,status,error){
+                    console.log(request);
+                }
+            });
         }
     </script>
 @endsection

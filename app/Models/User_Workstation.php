@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class User_Workstation extends Model
 {
-    use HasFactory;
+    
+    protected $table = "workstations";
+    protected $fillable = [
+        'name_workstation'
+    ];
 }

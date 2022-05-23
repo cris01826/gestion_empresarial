@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->integer('id_country');
             $table->integer('id_department');
             $table->integer('id_city');
-            $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
